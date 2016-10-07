@@ -1,0 +1,14 @@
+﻿<h1>gg</h1>
+
+<h2>You did @ViewData["percentageSuccess"]% on this quiz</h2>
+
+<div>
+    @if (ViewData["nextQuizId"] != null)
+    {
+        @Html.ActionLink("Proceed", "ProceedToQuiz", new { quizId = int.Parse(ViewData["nextQuizId"].ToString()) }, new { @class = "k-primary k-button" })
+    }
+    else
+    {
+        @Html.ActionLink("Finish", "CompleteQuiz", new { }, new { @class = "k-primary k-button" })
+    }
+</div>

@@ -1,0 +1,4315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ifd-sofia.com/britanica" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ifd-sofia.com/britanica" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ifd-sofia.com/britanica">
+      <s:element name="Get_Invoice_No_Kalini">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enrolmentId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_Invoice_No_KaliniResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_Invoice_No_KaliniResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeader" type="tns:AuthHeader" />
+      <s:complexType name="AuthHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="Get_IncludeBookInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enrolmentId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Get_IncludeBookInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Get_IncludeBookInvoiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checIfkEGN_Exists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpEGN" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contact_Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checIfkEGN_ExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checIfkEGN_ExistsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checIfkEIK_Exists">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpEIK" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="checIfkEIK_ExistsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="checIfkEIK_ExistsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="authentificateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="authentificateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="authentificateUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="oldPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordForgotten">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ChangePasswordForgottenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ChangePasswordForgottenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBookInvoiceType">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="invoicetype" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="id" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="schooltype" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveBookInvoiceTypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveBookInvoiceTypeResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_if_The_Student_Exist_in_this_group">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrainingGroupEducationType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_if_The_Student_Exist_in_this_groupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Check_if_The_Student_Exist_in_this_groupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Contacts_History_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Contacts_History_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Contacts_History_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Order_History_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Enr_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LangCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Order_History_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Order_History_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFrontEndSelection">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="step" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FrontendSelection" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogFrontEndSelectionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogFrontEndSelectionResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelOnlineRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginContactID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelOnlineRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CancelOnlineRegistrationResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Login_Entry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UserID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="OperationType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Insert_Login_EntryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Insert_Login_EntryResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumberSeries">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="departmentCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="numberSeriesCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNumberSeriesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNumberSeriesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="guid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOnlineRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOnlineRegistrationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdditionalCommonContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceContactNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AdditionalCommonContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AdditionalCommonContactResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlineRegistrationContactsSetPassword">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="REGID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlineRegistrationContactsSetPasswordResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOnlineRegistrationContactsSetPasswordResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUsersPasswordByEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUsersPasswordByEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendUsersPasswordByEmailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Books_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="portalUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Books_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Books_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Books_wb_SaveInvoiceBooksToCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactInvoiceBooks" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EducationType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Books_wb_SaveInvoiceBooksToCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="WIZ_Books_wb_SaveInvoiceBooksToCustomerResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Documents_GetDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="loginContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileFolder" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Documents_GetDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Documents_GetDocumentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooksNotPosted">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooksNotPostedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBooksNotPostedResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiscardInvoicesForEnrollemnt">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrainungGroupID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DiscardInvoicesForEnrollemntResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DiscardInvoicesForEnrollemntResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasActivePaymentsOnlineForEnrollment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="enrollmentID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentFor" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasActivePaymentsOnlineForEnrollmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HasActivePaymentsOnlineForEnrollmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsForContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStudentsForContactResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetStudentsForContactResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContact">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlString" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactnoToUpdate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContactResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateContacts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateContactsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertRegistration_Help">
+        <s:complexType />
+      </s:element>
+      <s:element name="InsertRegistration_HelpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertRegistration_HelpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmRegistration_Help">
+        <s:complexType />
+      </s:element>
+      <s:element name="ConfirmRegistration_HelpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmRegistration_HelpResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertRegistrationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_Mail_byTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailTemplateNo" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="RegistrationID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachments" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Send_Mail_byTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Send_Mail_byTemplateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendMailByTemplate">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MailTemplateNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailTo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="attachments" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="parameters" type="tns:ArrayOfMailParameter" />
+            <s:element minOccurs="1" maxOccurs="1" name="referenceId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="referenceDescription" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfMailParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="MailParameter" nillable="true" type="tns:MailParameter" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MailParameter">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="key" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SendMailByTemplateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendMailByTemplateResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdultFlag">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="personalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdultFlagResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAdultFlagResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConfirmRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConfirmRegistrationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelRegistration">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelRegistrationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelRegistrationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRegistrationPending">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRegistrationPendingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRegistrationPendingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRegistrationCompletedForCustPortal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetRegistrationCompletedForCustPortalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetRegistrationCompletedForCustPortalResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRegistrationStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="regId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRegistrationStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRegistrationStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="educationType" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrainingProductsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingGroups">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="departmentId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="trainingProduct" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingGroupsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrainingGroupsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingGroupsOnlineTests">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="level" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTrainingGroupsOnlineTestsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTrainingGroupsOnlineTestsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNomenclatures">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNomenclaturesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetNomenclaturesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Upload_Document">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpGUID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Doc_Type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="XMl_String" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="FileExention" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Upload_DocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Upload_DocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Download_Document">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FromName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DocumentType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Download_DocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Download_DocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelRegistrationMail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Registration_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelRegistrationMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelRegistrationMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TestMail">
+        <s:complexType />
+      </s:element>
+      <s:element name="TestMailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="TestMailResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Registration_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateDocumentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateRegForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Registration_ID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateRegFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateRegFormResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Documents_Uploaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="xmlStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Documents_UploadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Documents_UploadedResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Contacts_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Contacts_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Contacts_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Groups_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selected_NextLevel" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="DEP_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter_Buttons" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selected_CurrLevel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="bAllGrp" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Groups_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Groups_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sel_Cont" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sel_Inv_Cont" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Group_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Education_Dummy" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Course_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Payments_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Payments_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Payments_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_ContactsAll_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_ContactsAll_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_ContactsAll_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="depid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="discount" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="erpno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxesResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_SaveEnrolmentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpDT">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Auth_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UsersDepartment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_SaveEnrolmentDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Course_SaveEnrolmentDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_Summer_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sel_Cont" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Sel_Inv_Cont" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Group_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_Summer_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Course_Summer_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_Summer_SaveEnrolmentData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="inpDT">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="Auth_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UsersDepartment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_Course_Summer_SaveEnrolmentDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_Course_Summer_SaveEnrolmentDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_AdditionalInfo1_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="WIZ_AdditionalInfo1_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="WIZ_AdditionalInfo1_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContactRelativesData_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MotherKeyNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="M_Receive_Messages" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="FatherKeyNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="F_Receive_Messages" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContactRelativesData_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveContactRelativesData_InitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContactData_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Schools_Value" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Course_Value" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Auth_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UsersDepartment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveContactData_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveContactData_InitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveSummerSchool_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="dt_input">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveSummerSchool_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveSummerSchool_InitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Choice_Company_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DepartmentNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ItemNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="TypePayments" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="SumToAdd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isFirm" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="StudentsCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Choice_Company_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Choice_Company_InitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Choice_Company_NewLogic">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsFirm" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Choice_Company_NewLogicResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Choice_Company_NewLogicResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContact_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CurrentContact_No" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Selected_NextLevel" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="DEP_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Filter_Buttons" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Lang_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateContact_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateContact_InitResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCreatedContact_Init">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AuthContactID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ds">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="0" maxOccurs="1" name="department" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsForEdit" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="EditContactID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveCreatedContact_InitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveCreatedContact_InitResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetailsByEgnOrEik">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EgnOrEik" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Contact_Type" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetContactDetailsByEgnOrEikResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetContactDetailsByEgnOrEikResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBooksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBooksResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateCustomerPortalDocuments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Enrollemnt_ID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="generateCustomerPortalDocumentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="generateCustomerPortalDocumentsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePickedBooks">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="rowno" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="checkpos" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SavePickedBooksResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SavePickedBooksResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMainCompany">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMainCompanyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMainCompanyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enrollmentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="educationtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LangCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="contactno" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enrollmentid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="educationtype" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LangCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderDetailsResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EnrID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrainingGroup" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Auth_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UsersDepartment" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EducationType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentMethodBooks" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LangCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="dt_input">
+              <s:complexType>
+                <s:sequence>
+                  <s:any minOccurs="0" maxOccurs="unbounded" namespace="http://www.w3.org/2001/XMLSchema" processContents="lax" />
+                  <s:any minOccurs="1" namespace="urn:schemas-microsoft-com:xml-diffgram-v1" processContents="lax" />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+            <s:element minOccurs="1" maxOccurs="1" name="createBooks" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SaveOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SaveOrderResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlinePaymentsForCustomerPortal">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enrolmentId" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="enrolment_type" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="InOneLink" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="InvoiceType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlinePaymentsForCustomerPortalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOnlinePaymentsForCustomerPortalResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateInvoiceForCustomer">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="customerNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dueDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_user" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="_department" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="invoiceToPerson" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="enrolmentID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="paymentNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="receiverName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateInvoiceForCustomerResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateInvoiceForCustomerResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddItemToCustomerInvoice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="invoiceNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="itemNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitPrice" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="VAT" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="discount" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="quantity" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="newLineNo" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postingGroup" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceNoDisc" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="priceWithDiscPortfolio" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="unitPriceInLCY" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddItemToCustomerInvoiceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddItemToCustomerInvoiceResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlinePaymentsForCustomerPortalAllEducationTypes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="enrolmentIDs" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupIDs" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="contactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="InOneLink" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="InvoiceType" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="referenceTypeBooks" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateOnlinePaymentsForCustomerPortalAllEducationTypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateOnlinePaymentsForCustomerPortalAllEducationTypesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeInvoice_ForPayments">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ContactNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="TrainingCourse" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="PaymentNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="SummerSchoolID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Training_GroupID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="dueDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="invoice_company" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="paymentMethod" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Auth_User" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="selectedUserDepartment" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="MakeInvoice_ForPaymentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="MakeInvoice_ForPaymentsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Payment_Allow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="InvoiceNo" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Payment_AllowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Check_Payment_AllowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Epay_Allow">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="EnrollmentID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Type" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="EnrollmentType" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Epay_AllowResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="Check_Epay_AllowResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Education_Type">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GroupID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Check_Education_TypeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Check_Education_TypeResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Get_Invoice_No_KaliniSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_Invoice_No_Kalini" />
+  </wsdl:message>
+  <wsdl:message name="Get_Invoice_No_KaliniSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_Invoice_No_KaliniResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_Invoice_No_KaliniAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Get_IncludeBookInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:Get_IncludeBookInvoice" />
+  </wsdl:message>
+  <wsdl:message name="Get_IncludeBookInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:Get_IncludeBookInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="Get_IncludeBookInvoiceAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEGN_ExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:checIfkEGN_Exists" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEGN_ExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:checIfkEGN_ExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEGN_ExistsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEIK_ExistsSoapIn">
+    <wsdl:part name="parameters" element="tns:checIfkEIK_Exists" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEIK_ExistsSoapOut">
+    <wsdl:part name="parameters" element="tns:checIfkEIK_ExistsResponse" />
+  </wsdl:message>
+  <wsdl:message name="checIfkEIK_ExistsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="authentificateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:authentificateUser" />
+  </wsdl:message>
+  <wsdl:message name="authentificateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:authentificateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="authentificateUserAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePassword" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordForgottenSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangePasswordForgotten" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordForgottenSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangePasswordForgottenResponse" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordForgottenAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveBookInvoiceTypeSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveBookInvoiceType" />
+  </wsdl:message>
+  <wsdl:message name="SaveBookInvoiceTypeSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveBookInvoiceTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveBookInvoiceTypeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Check_if_The_Student_Exist_in_this_groupSoapIn">
+    <wsdl:part name="parameters" element="tns:Check_if_The_Student_Exist_in_this_group" />
+  </wsdl:message>
+  <wsdl:message name="Check_if_The_Student_Exist_in_this_groupSoapOut">
+    <wsdl:part name="parameters" element="tns:Check_if_The_Student_Exist_in_this_groupResponse" />
+  </wsdl:message>
+  <wsdl:message name="Check_if_The_Student_Exist_in_this_groupAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_History_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Contacts_History_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_History_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Contacts_History_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_History_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Order_History_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Order_History_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Order_History_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Order_History_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Order_History_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="LogFrontEndSelectionSoapIn">
+    <wsdl:part name="parameters" element="tns:LogFrontEndSelection" />
+  </wsdl:message>
+  <wsdl:message name="LogFrontEndSelectionSoapOut">
+    <wsdl:part name="parameters" element="tns:LogFrontEndSelectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogFrontEndSelectionAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelOnlineRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelOnlineRegistration" />
+  </wsdl:message>
+  <wsdl:message name="CancelOnlineRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelOnlineRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelOnlineRegistrationAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Login_EntrySoapIn">
+    <wsdl:part name="parameters" element="tns:Insert_Login_Entry" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Login_EntrySoapOut">
+    <wsdl:part name="parameters" element="tns:Insert_Login_EntryResponse" />
+  </wsdl:message>
+  <wsdl:message name="Insert_Login_EntryAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNumberSeriesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNumberSeries" />
+  </wsdl:message>
+  <wsdl:message name="GetNumberSeriesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNumberSeriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNumberSeriesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOnlineRegistration" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOnlineRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOnlineRegistrationAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AdditionalCommonContactSoapIn">
+    <wsdl:part name="parameters" element="tns:AdditionalCommonContact" />
+  </wsdl:message>
+  <wsdl:message name="AdditionalCommonContactSoapOut">
+    <wsdl:part name="parameters" element="tns:AdditionalCommonContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="AdditionalCommonContactAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlineRegistrationContactsSetPasswordSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOnlineRegistrationContactsSetPassword" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlineRegistrationContactsSetPasswordSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOnlineRegistrationContactsSetPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlineRegistrationContactsSetPasswordAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SendUsersPasswordByEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUsersPasswordByEmail" />
+  </wsdl:message>
+  <wsdl:message name="SendUsersPasswordByEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUsersPasswordByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUsersPasswordByEmailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Books_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Books_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_wb_SaveInvoiceBooksToCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomer" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_wb_SaveInvoiceBooksToCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Books_wb_SaveInvoiceBooksToCustomerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Documents_GetDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Documents_GetDocuments" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Documents_GetDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Documents_GetDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Documents_GetDocumentsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksNotPostedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBooksNotPosted" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksNotPostedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBooksNotPostedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksNotPostedAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="DiscardInvoicesForEnrollemntSoapIn">
+    <wsdl:part name="parameters" element="tns:DiscardInvoicesForEnrollemnt" />
+  </wsdl:message>
+  <wsdl:message name="DiscardInvoicesForEnrollemntSoapOut">
+    <wsdl:part name="parameters" element="tns:DiscardInvoicesForEnrollemntResponse" />
+  </wsdl:message>
+  <wsdl:message name="DiscardInvoicesForEnrollemntAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="HasActivePaymentsOnlineForEnrollmentSoapIn">
+    <wsdl:part name="parameters" element="tns:HasActivePaymentsOnlineForEnrollment" />
+  </wsdl:message>
+  <wsdl:message name="HasActivePaymentsOnlineForEnrollmentSoapOut">
+    <wsdl:part name="parameters" element="tns:HasActivePaymentsOnlineForEnrollmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="HasActivePaymentsOnlineForEnrollmentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsForContactSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStudentsForContact" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsForContactSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStudentsForContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStudentsForContactAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateContact" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateContactResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateContactAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateContacts" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateContactsResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateContactsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistration_HelpSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRegistration_Help" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistration_HelpSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRegistration_HelpResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistration_HelpAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistration_HelpSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistration_Help" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistration_HelpSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistration_HelpResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistration_HelpAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertRegistration" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertRegistrationAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Send_Mail_byTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:Send_Mail_byTemplate" />
+  </wsdl:message>
+  <wsdl:message name="Send_Mail_byTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:Send_Mail_byTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendMailByTemplateSoapIn">
+    <wsdl:part name="parameters" element="tns:SendMailByTemplate" />
+  </wsdl:message>
+  <wsdl:message name="SendMailByTemplateSoapOut">
+    <wsdl:part name="parameters" element="tns:SendMailByTemplateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdultFlagSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdultFlag" />
+  </wsdl:message>
+  <wsdl:message name="GetAdultFlagSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdultFlagResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdultFlagAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistration" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:ConfirmRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConfirmRegistrationAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelRegistration" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelRegistrationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationPendingSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRegistrationPending" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationPendingSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRegistrationPendingResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationPendingAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationCompletedForCustPortalSoapIn">
+    <wsdl:part name="parameters" element="tns:SetRegistrationCompletedForCustPortal" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationCompletedForCustPortalSoapOut">
+    <wsdl:part name="parameters" element="tns:SetRegistrationCompletedForCustPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetRegistrationCompletedForCustPortalAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRegistrationStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRegistrationStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRegistrationStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRegistrationStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRegistrationStatusAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrainingProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrainingProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingProductsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrainingGroups" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrainingGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsOnlineTestsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTrainingGroupsOnlineTests" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsOnlineTestsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTrainingGroupsOnlineTestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTrainingGroupsOnlineTestsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetNomenclaturesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetNomenclatures" />
+  </wsdl:message>
+  <wsdl:message name="GetNomenclaturesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetNomenclaturesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetNomenclaturesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Upload_DocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:Upload_Document" />
+  </wsdl:message>
+  <wsdl:message name="Upload_DocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:Upload_DocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="Upload_DocumentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Download_DocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:Download_Document" />
+  </wsdl:message>
+  <wsdl:message name="Download_DocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:Download_DocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="Download_DocumentAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationMailSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelRegistrationMail" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationMailSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelRegistrationMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelRegistrationMailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="TestMailSoapIn">
+    <wsdl:part name="parameters" element="tns:TestMail" />
+  </wsdl:message>
+  <wsdl:message name="TestMailSoapOut">
+    <wsdl:part name="parameters" element="tns:TestMailResponse" />
+  </wsdl:message>
+  <wsdl:message name="TestMailAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="generateDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:generateDocuments" />
+  </wsdl:message>
+  <wsdl:message name="generateDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:generateDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateDocumentsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="generateRegFormSoapIn">
+    <wsdl:part name="parameters" element="tns:generateRegForm" />
+  </wsdl:message>
+  <wsdl:message name="generateRegFormSoapOut">
+    <wsdl:part name="parameters" element="tns:generateRegFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateRegFormAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Documents_UploadedSoapIn">
+    <wsdl:part name="parameters" element="tns:Documents_Uploaded" />
+  </wsdl:message>
+  <wsdl:message name="Documents_UploadedSoapOut">
+    <wsdl:part name="parameters" element="tns:Documents_UploadedResponse" />
+  </wsdl:message>
+  <wsdl:message name="Documents_UploadedAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Contacts_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Contacts_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Contacts_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Groups_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Groups_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Groups_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Groups_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Groups_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Payments_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Payments_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Payments_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Payments_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Payments_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_ContactsAll_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_ContactsAll_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_ContactsAll_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_ContactsAll_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_ContactsAll_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxes" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_SaveEnrolmentDataSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_SaveEnrolmentData" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_SaveEnrolmentDataSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_SaveEnrolmentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_SaveEnrolmentDataAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_Summer_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_Summer_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_SaveEnrolmentDataSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_Summer_SaveEnrolmentData" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_SaveEnrolmentDataSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_Course_Summer_SaveEnrolmentDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_Course_Summer_SaveEnrolmentDataAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_AdditionalInfo1_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:WIZ_AdditionalInfo1_Init" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_AdditionalInfo1_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:WIZ_AdditionalInfo1_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="WIZ_AdditionalInfo1_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactRelativesData_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveContactRelativesData_Init" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactRelativesData_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveContactRelativesData_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactRelativesData_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactData_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveContactData_Init" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactData_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveContactData_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveContactData_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveSummerSchool_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveSummerSchool_Init" />
+  </wsdl:message>
+  <wsdl:message name="SaveSummerSchool_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveSummerSchool_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveSummerSchool_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:Choice_Company_Init" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:Choice_Company_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_NewLogicSoapIn">
+    <wsdl:part name="parameters" element="tns:Choice_Company_NewLogic" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_NewLogicSoapOut">
+    <wsdl:part name="parameters" element="tns:Choice_Company_NewLogicResponse" />
+  </wsdl:message>
+  <wsdl:message name="Choice_Company_NewLogicAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateContact_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateContact_Init" />
+  </wsdl:message>
+  <wsdl:message name="CreateContact_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateContact_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateContact_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveCreatedContact_InitSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveCreatedContact_Init" />
+  </wsdl:message>
+  <wsdl:message name="SaveCreatedContact_InitSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveCreatedContact_InitResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveCreatedContact_InitAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsByEgnOrEikSoapIn">
+    <wsdl:part name="parameters" element="tns:GetContactDetailsByEgnOrEik" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsByEgnOrEikSoapOut">
+    <wsdl:part name="parameters" element="tns:GetContactDetailsByEgnOrEikResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetContactDetailsByEgnOrEikAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBooks" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBooksAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="generateCustomerPortalDocumentsSoapIn">
+    <wsdl:part name="parameters" element="tns:generateCustomerPortalDocuments" />
+  </wsdl:message>
+  <wsdl:message name="generateCustomerPortalDocumentsSoapOut">
+    <wsdl:part name="parameters" element="tns:generateCustomerPortalDocumentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="generateCustomerPortalDocumentsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SavePickedBooksSoapIn">
+    <wsdl:part name="parameters" element="tns:SavePickedBooks" />
+  </wsdl:message>
+  <wsdl:message name="SavePickedBooksSoapOut">
+    <wsdl:part name="parameters" element="tns:SavePickedBooksResponse" />
+  </wsdl:message>
+  <wsdl:message name="SavePickedBooksAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetMainCompanySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMainCompany" />
+  </wsdl:message>
+  <wsdl:message name="GetMainCompanySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMainCompanyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMainCompanyAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="OrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="OrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderDetailsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="SaveOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:SaveOrder" />
+  </wsdl:message>
+  <wsdl:message name="SaveOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:SaveOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="SaveOrderAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOnlinePaymentsForCustomerPortal" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOnlinePaymentsForCustomerPortalResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateInvoiceForCustomerSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateInvoiceForCustomer" />
+  </wsdl:message>
+  <wsdl:message name="CreateInvoiceForCustomerSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateInvoiceForCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateInvoiceForCustomerAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddItemToCustomerInvoiceSoapIn">
+    <wsdl:part name="parameters" element="tns:AddItemToCustomerInvoice" />
+  </wsdl:message>
+  <wsdl:message name="AddItemToCustomerInvoiceSoapOut">
+    <wsdl:part name="parameters" element="tns:AddItemToCustomerInvoiceResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddItemToCustomerInvoiceAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalAllEducationTypesSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypes" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalAllEducationTypesSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateOnlinePaymentsForCustomerPortalAllEducationTypesAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="MakeInvoice_ForPaymentsSoapIn">
+    <wsdl:part name="parameters" element="tns:MakeInvoice_ForPayments" />
+  </wsdl:message>
+  <wsdl:message name="MakeInvoice_ForPaymentsSoapOut">
+    <wsdl:part name="parameters" element="tns:MakeInvoice_ForPaymentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="MakeInvoice_ForPaymentsAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Check_Payment_AllowSoapIn">
+    <wsdl:part name="parameters" element="tns:Check_Payment_Allow" />
+  </wsdl:message>
+  <wsdl:message name="Check_Payment_AllowSoapOut">
+    <wsdl:part name="parameters" element="tns:Check_Payment_AllowResponse" />
+  </wsdl:message>
+  <wsdl:message name="Check_Payment_AllowAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Check_Epay_AllowSoapIn">
+    <wsdl:part name="parameters" element="tns:Check_Epay_Allow" />
+  </wsdl:message>
+  <wsdl:message name="Check_Epay_AllowSoapOut">
+    <wsdl:part name="parameters" element="tns:Check_Epay_AllowResponse" />
+  </wsdl:message>
+  <wsdl:message name="Check_Epay_AllowAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:message name="Check_Education_TypeSoapIn">
+    <wsdl:part name="parameters" element="tns:Check_Education_Type" />
+  </wsdl:message>
+  <wsdl:message name="Check_Education_TypeSoapOut">
+    <wsdl:part name="parameters" element="tns:Check_Education_TypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="Check_Education_TypeAuthHeader">
+    <wsdl:part name="AuthHeader" element="tns:AuthHeader" />
+  </wsdl:message>
+  <wsdl:portType name="BritanicaOnlineExamRegistrationSoap">
+    <wsdl:operation name="Get_Invoice_No_Kalini">
+      <wsdl:input message="tns:Get_Invoice_No_KaliniSoapIn" />
+      <wsdl:output message="tns:Get_Invoice_No_KaliniSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Get_IncludeBookInvoice">
+      <wsdl:input message="tns:Get_IncludeBookInvoiceSoapIn" />
+      <wsdl:output message="tns:Get_IncludeBookInvoiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEGN_Exists">
+      <wsdl:input message="tns:checIfkEGN_ExistsSoapIn" />
+      <wsdl:output message="tns:checIfkEGN_ExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEIK_Exists">
+      <wsdl:input message="tns:checIfkEIK_ExistsSoapIn" />
+      <wsdl:output message="tns:checIfkEIK_ExistsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="authentificateUser">
+      <wsdl:input message="tns:authentificateUserSoapIn" />
+      <wsdl:output message="tns:authentificateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input message="tns:ChangePasswordSoapIn" />
+      <wsdl:output message="tns:ChangePasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordForgotten">
+      <wsdl:input message="tns:ChangePasswordForgottenSoapIn" />
+      <wsdl:output message="tns:ChangePasswordForgottenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookInvoiceType">
+      <wsdl:input message="tns:SaveBookInvoiceTypeSoapIn" />
+      <wsdl:output message="tns:SaveBookInvoiceTypeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_if_The_Student_Exist_in_this_group">
+      <wsdl:input message="tns:Check_if_The_Student_Exist_in_this_groupSoapIn" />
+      <wsdl:output message="tns:Check_if_The_Student_Exist_in_this_groupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_History_Init">
+      <wsdl:input message="tns:WIZ_Contacts_History_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Contacts_History_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Order_History_Init">
+      <wsdl:input message="tns:WIZ_Order_History_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Order_History_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogFrontEndSelection">
+      <wsdl:input message="tns:LogFrontEndSelectionSoapIn" />
+      <wsdl:output message="tns:LogFrontEndSelectionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOnlineRegistration">
+      <wsdl:input message="tns:CancelOnlineRegistrationSoapIn" />
+      <wsdl:output message="tns:CancelOnlineRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Login_Entry">
+      <wsdl:input message="tns:Insert_Login_EntrySoapIn" />
+      <wsdl:output message="tns:Insert_Login_EntrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberSeries">
+      <wsdl:input message="tns:GetNumberSeriesSoapIn" />
+      <wsdl:output message="tns:GetNumberSeriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineRegistration">
+      <wsdl:input message="tns:GetOnlineRegistrationSoapIn" />
+      <wsdl:output message="tns:GetOnlineRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalCommonContact">
+      <wsdl:input message="tns:AdditionalCommonContactSoapIn" />
+      <wsdl:output message="tns:AdditionalCommonContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlineRegistrationContactsSetPassword">
+      <wsdl:input message="tns:CreateOnlineRegistrationContactsSetPasswordSoapIn" />
+      <wsdl:output message="tns:CreateOnlineRegistrationContactsSetPasswordSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUsersPasswordByEmail">
+      <wsdl:input message="tns:SendUsersPasswordByEmailSoapIn" />
+      <wsdl:output message="tns:SendUsersPasswordByEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_Init">
+      <wsdl:input message="tns:WIZ_Books_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Books_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_wb_SaveInvoiceBooksToCustomer">
+      <wsdl:input message="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomerSoapIn" />
+      <wsdl:output message="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Documents_GetDocuments">
+      <wsdl:input message="tns:WIZ_Documents_GetDocumentsSoapIn" />
+      <wsdl:output message="tns:WIZ_Documents_GetDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksNotPosted">
+      <wsdl:input message="tns:GetBooksNotPostedSoapIn" />
+      <wsdl:output message="tns:GetBooksNotPostedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DiscardInvoicesForEnrollemnt">
+      <wsdl:input message="tns:DiscardInvoicesForEnrollemntSoapIn" />
+      <wsdl:output message="tns:DiscardInvoicesForEnrollemntSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HasActivePaymentsOnlineForEnrollment">
+      <wsdl:input message="tns:HasActivePaymentsOnlineForEnrollmentSoapIn" />
+      <wsdl:output message="tns:HasActivePaymentsOnlineForEnrollmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsForContact">
+      <wsdl:input message="tns:GetStudentsForContactSoapIn" />
+      <wsdl:output message="tns:GetStudentsForContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <wsdl:input message="tns:CreateContactSoapIn" />
+      <wsdl:output message="tns:CreateContactSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContacts">
+      <wsdl:input message="tns:UpdateContactsSoapIn" />
+      <wsdl:output message="tns:UpdateContactsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration_Help">
+      <wsdl:input message="tns:InsertRegistration_HelpSoapIn" />
+      <wsdl:output message="tns:InsertRegistration_HelpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration_Help">
+      <wsdl:input message="tns:ConfirmRegistration_HelpSoapIn" />
+      <wsdl:output message="tns:ConfirmRegistration_HelpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration">
+      <wsdl:input message="tns:InsertRegistrationSoapIn" />
+      <wsdl:output message="tns:InsertRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Send_Mail_byTemplate">
+      <wsdl:input message="tns:Send_Mail_byTemplateSoapIn" />
+      <wsdl:output message="tns:Send_Mail_byTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByTemplate">
+      <wsdl:input message="tns:SendMailByTemplateSoapIn" />
+      <wsdl:output message="tns:SendMailByTemplateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdultFlag">
+      <wsdl:input message="tns:GetAdultFlagSoapIn" />
+      <wsdl:output message="tns:GetAdultFlagSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration">
+      <wsdl:input message="tns:ConfirmRegistrationSoapIn" />
+      <wsdl:output message="tns:ConfirmRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistration">
+      <wsdl:input message="tns:CancelRegistrationSoapIn" />
+      <wsdl:output message="tns:CancelRegistrationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationPending">
+      <wsdl:input message="tns:SetRegistrationPendingSoapIn" />
+      <wsdl:output message="tns:SetRegistrationPendingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationCompletedForCustPortal">
+      <wsdl:input message="tns:SetRegistrationCompletedForCustPortalSoapIn" />
+      <wsdl:output message="tns:SetRegistrationCompletedForCustPortalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegistrationStatus">
+      <wsdl:input message="tns:UpdateRegistrationStatusSoapIn" />
+      <wsdl:output message="tns:UpdateRegistrationStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingProducts">
+      <wsdl:input message="tns:GetTrainingProductsSoapIn" />
+      <wsdl:output message="tns:GetTrainingProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroups">
+      <wsdl:input message="tns:GetTrainingGroupsSoapIn" />
+      <wsdl:output message="tns:GetTrainingGroupsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroupsOnlineTests">
+      <wsdl:input message="tns:GetTrainingGroupsOnlineTestsSoapIn" />
+      <wsdl:output message="tns:GetTrainingGroupsOnlineTestsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNomenclatures">
+      <wsdl:input message="tns:GetNomenclaturesSoapIn" />
+      <wsdl:output message="tns:GetNomenclaturesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Upload_Document">
+      <wsdl:input message="tns:Upload_DocumentSoapIn" />
+      <wsdl:output message="tns:Upload_DocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Download_Document">
+      <wsdl:input message="tns:Download_DocumentSoapIn" />
+      <wsdl:output message="tns:Download_DocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistrationMail">
+      <wsdl:input message="tns:CancelRegistrationMailSoapIn" />
+      <wsdl:output message="tns:CancelRegistrationMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TestMail">
+      <wsdl:input message="tns:TestMailSoapIn" />
+      <wsdl:output message="tns:TestMailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateDocuments">
+      <wsdl:input message="tns:generateDocumentsSoapIn" />
+      <wsdl:output message="tns:generateDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateRegForm">
+      <wsdl:input message="tns:generateRegFormSoapIn" />
+      <wsdl:output message="tns:generateRegFormSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Documents_Uploaded">
+      <wsdl:input message="tns:Documents_UploadedSoapIn" />
+      <wsdl:output message="tns:Documents_UploadedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_Init">
+      <wsdl:input message="tns:WIZ_Contacts_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Contacts_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Groups_Init">
+      <wsdl:input message="tns:WIZ_Groups_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Groups_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Init">
+      <wsdl:input message="tns:WIZ_Course_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Course_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Payments_Init">
+      <wsdl:input message="tns:WIZ_Payments_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Payments_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_ContactsAll_Init">
+      <wsdl:input message="tns:WIZ_ContactsAll_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_ContactsAll_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxes">
+      <wsdl:input message="tns:GetTaxesSoapIn" />
+      <wsdl:output message="tns:GetTaxesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_SaveEnrolmentData">
+      <wsdl:input message="tns:WIZ_Course_SaveEnrolmentDataSoapIn" />
+      <wsdl:output message="tns:WIZ_Course_SaveEnrolmentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_Init">
+      <wsdl:input message="tns:WIZ_Course_Summer_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_Course_Summer_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_SaveEnrolmentData">
+      <wsdl:input message="tns:WIZ_Course_Summer_SaveEnrolmentDataSoapIn" />
+      <wsdl:output message="tns:WIZ_Course_Summer_SaveEnrolmentDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_AdditionalInfo1_Init">
+      <wsdl:input message="tns:WIZ_AdditionalInfo1_InitSoapIn" />
+      <wsdl:output message="tns:WIZ_AdditionalInfo1_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactRelativesData_Init">
+      <wsdl:input message="tns:SaveContactRelativesData_InitSoapIn" />
+      <wsdl:output message="tns:SaveContactRelativesData_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactData_Init">
+      <wsdl:input message="tns:SaveContactData_InitSoapIn" />
+      <wsdl:output message="tns:SaveContactData_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveSummerSchool_Init">
+      <wsdl:input message="tns:SaveSummerSchool_InitSoapIn" />
+      <wsdl:output message="tns:SaveSummerSchool_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_Init">
+      <wsdl:input message="tns:Choice_Company_InitSoapIn" />
+      <wsdl:output message="tns:Choice_Company_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_NewLogic">
+      <wsdl:input message="tns:Choice_Company_NewLogicSoapIn" />
+      <wsdl:output message="tns:Choice_Company_NewLogicSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact_Init">
+      <wsdl:input message="tns:CreateContact_InitSoapIn" />
+      <wsdl:output message="tns:CreateContact_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveCreatedContact_Init">
+      <wsdl:input message="tns:SaveCreatedContact_InitSoapIn" />
+      <wsdl:output message="tns:SaveCreatedContact_InitSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <wsdl:input message="tns:GetContactDetailsSoapIn" />
+      <wsdl:output message="tns:GetContactDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetailsByEgnOrEik">
+      <wsdl:input message="tns:GetContactDetailsByEgnOrEikSoapIn" />
+      <wsdl:output message="tns:GetContactDetailsByEgnOrEikSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <wsdl:input message="tns:GetBooksSoapIn" />
+      <wsdl:output message="tns:GetBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="generateCustomerPortalDocuments">
+      <wsdl:input message="tns:generateCustomerPortalDocumentsSoapIn" />
+      <wsdl:output message="tns:generateCustomerPortalDocumentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SavePickedBooks">
+      <wsdl:input message="tns:SavePickedBooksSoapIn" />
+      <wsdl:output message="tns:SavePickedBooksSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMainCompany">
+      <wsdl:input message="tns:GetMainCompanySoapIn" />
+      <wsdl:output message="tns:GetMainCompanySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetails">
+      <wsdl:input message="tns:OrderDetailsSoapIn" />
+      <wsdl:output message="tns:OrderDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <wsdl:input message="tns:GetOrderDetailsSoapIn" />
+      <wsdl:output message="tns:GetOrderDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrder">
+      <wsdl:input message="tns:SaveOrderSoapIn" />
+      <wsdl:output message="tns:SaveOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortal">
+      <wsdl:input message="tns:CreateOnlinePaymentsForCustomerPortalSoapIn" />
+      <wsdl:output message="tns:CreateOnlinePaymentsForCustomerPortalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoiceForCustomer">
+      <wsdl:input message="tns:CreateInvoiceForCustomerSoapIn" />
+      <wsdl:output message="tns:CreateInvoiceForCustomerSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToCustomerInvoice">
+      <wsdl:input message="tns:AddItemToCustomerInvoiceSoapIn" />
+      <wsdl:output message="tns:AddItemToCustomerInvoiceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortalAllEducationTypes">
+      <wsdl:input message="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypesSoapIn" />
+      <wsdl:output message="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="MakeInvoice_ForPayments">
+      <wsdl:input message="tns:MakeInvoice_ForPaymentsSoapIn" />
+      <wsdl:output message="tns:MakeInvoice_ForPaymentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_Payment_Allow">
+      <wsdl:input message="tns:Check_Payment_AllowSoapIn" />
+      <wsdl:output message="tns:Check_Payment_AllowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_Epay_Allow">
+      <wsdl:input message="tns:Check_Epay_AllowSoapIn" />
+      <wsdl:output message="tns:Check_Epay_AllowSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Check_Education_Type">
+      <wsdl:input message="tns:Check_Education_TypeSoapIn" />
+      <wsdl:output message="tns:Check_Education_TypeSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BritanicaOnlineExamRegistrationSoap" type="tns:BritanicaOnlineExamRegistrationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Invoice_No_Kalini">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Get_Invoice_No_Kalini" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_Invoice_No_KaliniAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_IncludeBookInvoice">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Get_IncludeBookInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Get_IncludeBookInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEGN_Exists">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/checIfkEGN_Exists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:checIfkEGN_ExistsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEIK_Exists">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/checIfkEIK_Exists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:checIfkEIK_ExistsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authentificateUser">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/authentificateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:authentificateUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChangePasswordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordForgotten">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/ChangePasswordForgotten" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ChangePasswordForgottenAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookInvoiceType">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveBookInvoiceType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveBookInvoiceTypeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_if_The_Student_Exist_in_this_group">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Check_if_The_Student_Exist_in_this_group" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Check_if_The_Student_Exist_in_this_groupAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_History_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Contacts_History_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Contacts_History_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Order_History_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Order_History_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Order_History_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFrontEndSelection">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/LogFrontEndSelection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LogFrontEndSelectionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOnlineRegistration">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CancelOnlineRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelOnlineRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Login_Entry">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Insert_Login_Entry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Insert_Login_EntryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberSeries">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetNumberSeries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNumberSeriesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineRegistration">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetOnlineRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOnlineRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalCommonContact">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/AdditionalCommonContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AdditionalCommonContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlineRegistrationContactsSetPassword">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlineRegistrationContactsSetPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateOnlineRegistrationContactsSetPasswordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUsersPasswordByEmail">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SendUsersPasswordByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SendUsersPasswordByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Books_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Books_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_wb_SaveInvoiceBooksToCustomer">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Books_wb_SaveInvoiceBooksToCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Documents_GetDocuments">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Documents_GetDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Documents_GetDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksNotPosted">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetBooksNotPosted" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBooksNotPostedAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiscardInvoicesForEnrollemnt">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/DiscardInvoicesForEnrollemnt" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DiscardInvoicesForEnrollemntAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasActivePaymentsOnlineForEnrollment">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/HasActivePaymentsOnlineForEnrollment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:HasActivePaymentsOnlineForEnrollmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsForContact">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetStudentsForContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetStudentsForContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateContact" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContacts">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/UpdateContacts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateContactsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration_Help">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/InsertRegistration_Help" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertRegistration_HelpAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration_Help">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/ConfirmRegistration_Help" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConfirmRegistration_HelpAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/InsertRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InsertRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Mail_byTemplate">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Send_Mail_byTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByTemplate">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SendMailByTemplate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdultFlag">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetAdultFlag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetAdultFlagAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/ConfirmRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:ConfirmRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistration">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CancelRegistration" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationPending">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SetRegistrationPending" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetRegistrationPendingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationCompletedForCustPortal">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SetRegistrationCompletedForCustPortal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SetRegistrationCompletedForCustPortalAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegistrationStatus">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/UpdateRegistrationStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateRegistrationStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingProducts">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTrainingProductsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroups">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTrainingGroupsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroupsOnlineTests">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingGroupsOnlineTests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTrainingGroupsOnlineTestsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNomenclatures">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetNomenclatures" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetNomenclaturesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload_Document">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Upload_Document" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Upload_DocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Download_Document">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Download_Document" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Download_DocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistrationMail">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CancelRegistrationMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelRegistrationMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMail">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/TestMail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:TestMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateDocuments">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/generateDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:generateDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateRegForm">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/generateRegForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:generateRegFormAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents_Uploaded">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Documents_Uploaded" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Documents_UploadedAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Contacts_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Contacts_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Groups_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Groups_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Groups_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Course_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Payments_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Payments_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Payments_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_ContactsAll_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_ContactsAll_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_ContactsAll_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxes">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetTaxes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetTaxesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_SaveEnrolmentData">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_SaveEnrolmentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Course_SaveEnrolmentDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Summer_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Course_Summer_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_SaveEnrolmentData">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Summer_SaveEnrolmentData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_Course_Summer_SaveEnrolmentDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_AdditionalInfo1_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/WIZ_AdditionalInfo1_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:WIZ_AdditionalInfo1_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactRelativesData_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveContactRelativesData_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveContactRelativesData_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactData_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveContactData_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveContactData_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSummerSchool_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveSummerSchool_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveSummerSchool_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Choice_Company_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Choice_Company_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_NewLogic">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Choice_Company_NewLogic" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Choice_Company_NewLogicAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateContact_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateContact_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCreatedContact_Init">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveCreatedContact_Init" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveCreatedContact_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetContactDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContactDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetailsByEgnOrEik">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetContactDetailsByEgnOrEik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetContactDetailsByEgnOrEikAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetBooksAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateCustomerPortalDocuments">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/generateCustomerPortalDocuments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:generateCustomerPortalDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePickedBooks">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SavePickedBooks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SavePickedBooksAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainCompany">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetMainCompany" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetMainCompanyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetails">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/OrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:OrderDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetOrderDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrder">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/SaveOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SaveOrderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortal">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlinePaymentsForCustomerPortal" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateOnlinePaymentsForCustomerPortalAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoiceForCustomer">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateInvoiceForCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateInvoiceForCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToCustomerInvoice">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/AddItemToCustomerInvoice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddItemToCustomerInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortalAllEducationTypes">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlinePaymentsForCustomerPortalAllEducationTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeInvoice_ForPayments">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/MakeInvoice_ForPayments" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:MakeInvoice_ForPaymentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Payment_Allow">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Check_Payment_Allow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Check_Payment_AllowAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Epay_Allow">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Check_Epay_Allow" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Check_Epay_AllowAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Education_Type">
+      <soap:operation soapAction="http://ifd-sofia.com/britanica/Check_Education_Type" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:Check_Education_TypeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BritanicaOnlineExamRegistrationSoap12" type="tns:BritanicaOnlineExamRegistrationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Get_Invoice_No_Kalini">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Get_Invoice_No_Kalini" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Get_Invoice_No_KaliniAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Get_IncludeBookInvoice">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Get_IncludeBookInvoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Get_IncludeBookInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEGN_Exists">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/checIfkEGN_Exists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:checIfkEGN_ExistsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="checIfkEIK_Exists">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/checIfkEIK_Exists" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:checIfkEIK_ExistsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="authentificateUser">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/authentificateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:authentificateUserAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/ChangePassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChangePasswordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordForgotten">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/ChangePasswordForgotten" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ChangePasswordForgottenAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveBookInvoiceType">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveBookInvoiceType" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveBookInvoiceTypeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_if_The_Student_Exist_in_this_group">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Check_if_The_Student_Exist_in_this_group" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Check_if_The_Student_Exist_in_this_groupAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_History_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Contacts_History_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Contacts_History_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Order_History_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Order_History_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Order_History_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogFrontEndSelection">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/LogFrontEndSelection" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LogFrontEndSelectionAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOnlineRegistration">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CancelOnlineRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CancelOnlineRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Insert_Login_Entry">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Insert_Login_Entry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Insert_Login_EntryAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNumberSeries">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetNumberSeries" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNumberSeriesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOnlineRegistration">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetOnlineRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOnlineRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AdditionalCommonContact">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/AdditionalCommonContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AdditionalCommonContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlineRegistrationContactsSetPassword">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlineRegistrationContactsSetPassword" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateOnlineRegistrationContactsSetPasswordAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUsersPasswordByEmail">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SendUsersPasswordByEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SendUsersPasswordByEmailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Books_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Books_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Books_wb_SaveInvoiceBooksToCustomer">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Books_wb_SaveInvoiceBooksToCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Books_wb_SaveInvoiceBooksToCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Documents_GetDocuments">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Documents_GetDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Documents_GetDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooksNotPosted">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetBooksNotPosted" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBooksNotPostedAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DiscardInvoicesForEnrollemnt">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/DiscardInvoicesForEnrollemnt" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:DiscardInvoicesForEnrollemntAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasActivePaymentsOnlineForEnrollment">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/HasActivePaymentsOnlineForEnrollment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:HasActivePaymentsOnlineForEnrollmentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStudentsForContact">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetStudentsForContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetStudentsForContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateContact" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateContactAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContacts">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/UpdateContacts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateContactsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration_Help">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/InsertRegistration_Help" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertRegistration_HelpAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration_Help">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/ConfirmRegistration_Help" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConfirmRegistration_HelpAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertRegistration">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/InsertRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:InsertRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Send_Mail_byTemplate">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Send_Mail_byTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendMailByTemplate">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SendMailByTemplate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdultFlag">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetAdultFlag" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetAdultFlagAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConfirmRegistration">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/ConfirmRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:ConfirmRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistration">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CancelRegistration" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CancelRegistrationAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationPending">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SetRegistrationPending" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetRegistrationPendingAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetRegistrationCompletedForCustPortal">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SetRegistrationCompletedForCustPortal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SetRegistrationCompletedForCustPortalAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRegistrationStatus">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/UpdateRegistrationStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateRegistrationStatusAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingProducts">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTrainingProductsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroups">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingGroups" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTrainingGroupsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTrainingGroupsOnlineTests">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetTrainingGroupsOnlineTests" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTrainingGroupsOnlineTestsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNomenclatures">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetNomenclatures" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetNomenclaturesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Upload_Document">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Upload_Document" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Upload_DocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Download_Document">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Download_Document" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Download_DocumentAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRegistrationMail">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CancelRegistrationMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CancelRegistrationMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TestMail">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/TestMail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:TestMailAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateDocuments">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/generateDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:generateDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateRegForm">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/generateRegForm" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:generateRegFormAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Documents_Uploaded">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Documents_Uploaded" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Documents_UploadedAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Contacts_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Contacts_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Contacts_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Groups_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Groups_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Groups_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Course_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Payments_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Payments_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Payments_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_ContactsAll_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_ContactsAll_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_ContactsAll_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxes">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetTaxes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetTaxesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_SaveEnrolmentData">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_SaveEnrolmentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Course_SaveEnrolmentDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Summer_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Course_Summer_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_Course_Summer_SaveEnrolmentData">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_Course_Summer_SaveEnrolmentData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_Course_Summer_SaveEnrolmentDataAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WIZ_AdditionalInfo1_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/WIZ_AdditionalInfo1_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:WIZ_AdditionalInfo1_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactRelativesData_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveContactRelativesData_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveContactRelativesData_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveContactData_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveContactData_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveContactData_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveSummerSchool_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveSummerSchool_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveSummerSchool_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Choice_Company_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Choice_Company_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Choice_Company_NewLogic">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Choice_Company_NewLogic" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Choice_Company_NewLogicAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContact_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateContact_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateContact_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveCreatedContact_Init">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveCreatedContact_Init" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveCreatedContact_InitAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetails">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetContactDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContactDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContactDetailsByEgnOrEik">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetContactDetailsByEgnOrEik" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetContactDetailsByEgnOrEikAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooks">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetBooksAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="generateCustomerPortalDocuments">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/generateCustomerPortalDocuments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:generateCustomerPortalDocumentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SavePickedBooks">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SavePickedBooks" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SavePickedBooksAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMainCompany">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetMainCompany" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetMainCompanyAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderDetails">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/OrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:OrderDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:GetOrderDetailsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveOrder">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/SaveOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:SaveOrderAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortal">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlinePaymentsForCustomerPortal" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateOnlinePaymentsForCustomerPortalAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInvoiceForCustomer">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateInvoiceForCustomer" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateInvoiceForCustomerAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToCustomerInvoice">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/AddItemToCustomerInvoice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:AddItemToCustomerInvoiceAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOnlinePaymentsForCustomerPortalAllEducationTypes">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/CreateOnlinePaymentsForCustomerPortalAllEducationTypes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateOnlinePaymentsForCustomerPortalAllEducationTypesAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MakeInvoice_ForPayments">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/MakeInvoice_ForPayments" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:MakeInvoice_ForPaymentsAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Payment_Allow">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Check_Payment_Allow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Check_Payment_AllowAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Epay_Allow">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Check_Epay_Allow" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Check_Epay_AllowAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Check_Education_Type">
+      <soap12:operation soapAction="http://ifd-sofia.com/britanica/Check_Education_Type" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Check_Education_TypeAuthHeader" part="AuthHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BritanicaOnlineExamRegistration">
+    <wsdl:port name="BritanicaOnlineExamRegistrationSoap" binding="tns:BritanicaOnlineExamRegistrationSoap">
+      <soap:address location="http://localhost:1145/BritanicaOnlineExamRegistration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BritanicaOnlineExamRegistrationSoap12" binding="tns:BritanicaOnlineExamRegistrationSoap12">
+      <soap12:address location="http://localhost:1145/BritanicaOnlineExamRegistration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,75 @@
+﻿@using BritanicaQuiz.ViewModels
+@using BritanicaQuiz.Model
+@using System.Text.RegularExpressions;
+@model QuestionViewModel
+
+@helper RenderReadingAnswerQuestion(string text)
+{
+    var questionTexts = Regex.Split(text, @"\|\d+");
+    var numberOfAnswers = Regex.Matches(text, @"\|(\d+)");
+    
+    @Html.Raw("<strong>" + questionTexts[0] + "</strong>");
+
+    var answersIndex = 0;
+    
+    var answers = Model.Answers;
+    for (int i = 1; i < questionTexts.Length; i++)
+    {
+        @Html.Raw("<div><strong>" + questionTexts[i] + "</strong></div><div>");
+
+        var answersIndexOld = answersIndex;
+        answersIndex = answersIndexOld + int.Parse(numberOfAnswers[i - 1].Groups[1].Value); // 3, 3, 3
+
+        for (int k = answersIndexOld; k < answersIndex; k++)
+        {
+            var isChecked = string.Empty;
+            if (answers[k].QuizResults.FirstOrDefault(qr => qr.AnswerId == answers[k].Id) != null)
+            {
+                isChecked = "true";
+            }
+            
+            var isAnswered = string.Empty;
+            if ((bool)ViewData["isAnswered"])
+            {
+                isAnswered = "disabled";
+            }
+
+            var checkboxString = "<input type=\"checkbox\" id = " + answers[k].Id + " name=\"answer" + i + "\""
+                + "value = " + answers[k].Id + "";
+
+            if (isChecked == "true")
+            {
+                checkboxString += " checked=" + isChecked;
+            }
+
+            if (isAnswered == "disabled")
+            {
+                checkboxString += " disabled=\"true\"";
+            }
+
+            checkboxString += " class = \"OneAnswerCheckbox" + i + "\"></input>";
+            @Html.Raw(checkboxString);
+            @Html.Raw("<label for=\"" + answers[k].Id + "\">" + answers[k].Text + "</label>");
+        }
+
+        <script>
+            $('.OneAnswerCheckbox' + @i).click(function (e) {
+                selectedBox = this.id;
+
+                $('.OneAnswerCheckbox' + @i).each(function () {
+                    if (this.id == selectedBox) {
+                        this.checked = true;
+                    }
+                    else {
+                        this.checked = false;
+                    };
+                });
+            });
+        </script>
+
+        @Html.Raw("</div>");
+    }
+}
+
+<strong>@RenderReadingAnswerQuestion(Model.Text)</strong>
+

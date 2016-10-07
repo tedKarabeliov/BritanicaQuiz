@@ -1,0 +1,42 @@
+﻿@using System.Text.RegularExpressions
+@using BritanicaQuiz.ViewModels
+@using BritanicaQuiz.Model
+@model QuestionViewModel
+
+@helper RenderMultipleAnswerQuestion(string text)
+{
+    var pattern = Regex.Escape("[]");
+
+    var regex = new Regex(pattern);
+
+    var result = regex.Matches(text);
+
+    foreach (var answer in Model.Answers)
+    {
+        var answerHtml = string.Format("<input type=\"checkbox\" id=\"{0}\" class=\"k-checkbox OneAnswerCheckbox{1}\" value=\"{2}\"", answer.Id, answer.QuestionId, answer.Id);
+
+        if (answer.QuizResults.FirstOrDefault(qr => qr.AnswerId == answer.Id) != null)
+        {
+            answerHtml += (" checked ");
+        }
+
+        answerHtml += " name=\"answer\"";
+
+        if ((bool)ViewData["isAnswered"])
+        {
+            answerHtml += " disabled ";
+        }
+
+        answerHtml += string.Format("</input><label for=\"{0}\" class=\"k-checkbox-label\">{1}</label>", answer.Id, answer.Text);
+
+        @*<input type="checkbox" id="@answer.Id" class="k-checkbox OneAnswerCheckbox@(answer.QuestionId)" value="@answer.Id" @if (answer.QuizResults.FirstOrDefault(qr => qr.AnswerId == answer.Id) != null) { @Html.Raw("checked") ; } name="answer" @((bool)ViewData["isAnswered"] ? Html.Raw("disabled") : Html.Raw("")) />
+            <label for="@answer.Id" class="k-checkbox-label">@answer.Text</label>*@
+
+        text = regex.Replace(text, answerHtml, 1);
+        
+    }
+    
+    @Html.Raw(text)
+}
+
+@RenderMultipleAnswerQuestion(Model.Text)

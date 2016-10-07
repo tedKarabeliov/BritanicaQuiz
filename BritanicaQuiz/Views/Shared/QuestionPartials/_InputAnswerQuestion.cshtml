@@ -1,0 +1,26 @@
+﻿@using BritanicaQuiz.ViewModels
+@using BritanicaQuiz.Model;
+@using System.Text.RegularExpressions
+@model QuestionViewModel
+
+@helper RenderInputAnswerQuestion(string text)
+{
+    var pattern = Regex.Escape("[]");
+
+    var regex = new Regex(pattern);
+
+    var result = regex.Matches(text);
+
+    for (int i = 0; i < result.Count; i++)
+    {
+        var answer = Model.Answers[i];
+        @Html.Raw("<input type=\"hidden\" name=\"textAnswerIds\" value=\"" + answer.Id + "\" />")
+        
+        QuizResult quizResultAnswered = answer.QuizResults.Count == 0 ? null : answer.QuizResults[0];
+
+        text = regex.Replace(text, Html.Kendo().TextBox().Name("answertext").Enable(!((bool)ViewData["isAnswered"])).Value(quizResultAnswered != null ? quizResultAnswered.Text : string.Empty).ToString(), 1);
+    }
+    @Html.Raw(text)
+}
+
+<strong>@RenderInputAnswerQuestion(Model.Text)</strong>

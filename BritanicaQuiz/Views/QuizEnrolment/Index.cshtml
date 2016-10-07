@@ -1,0 +1,144 @@
+﻿@model BritanicaQuiz.ViewModels.QuizEnrolmentInputViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #enrolment-form-wrapper ul {
+        list-style-type: none;
+        padding-bottom: 1em;
+        margin-bottom: 2em;
+    }
+
+    #enrolment-form-wrapper .field {
+        margin: 0 5em -1em;
+    }
+
+        #enrolment-form-wrapper .field li {
+            list-style: none;
+            padding-bottom: 0.5em;
+        }
+
+    #enrolment-form-wrapper h4 {
+        padding-top: 1em;
+        padding-left: 1em;
+    }
+
+    #enrolment-form-wrapper .bottom-right {
+        text-align: right;
+        padding: 10px;
+    }
+</style>
+
+<div id="enrolment-form-wrapper" class="k-block k-shadow wrapper">
+    @using (Html.BeginForm("CreateEnrolment", "QuizEnrolment", FormMethod.Post))
+    {
+        <div class="k-block k-shadow">
+            <p class="lead text-center">Моля попълнете кратка анкета, с която да ви предложим актуален за вашето ниво на английски език тест.</p>
+            <div style="padding: 20px">
+                <p>- Как сте изучавали английски език досега? @(Html.Kendo().TextBox().Name("PastEnglishStudyingDescription"))</p>
+                <p>- Какви са целите ви, свързани с употребата на английски език? @(Html.Kendo().TextBox().Name("EnglishGoalsDescription"))</p>
+                <p>- Посочете вид обучение по английски език</p>
+                <div>
+                    <ul>
+                        @foreach (var courseType in Enum.GetValues(typeof(BritanicaQuiz.Model.CourseType)))
+                        {
+                            <li>
+                                @(Html.Kendo().RadioButton().Name(courseType.ToString()).Value(courseType.ToString())
+                                .HtmlAttributes(new { @name = "courseType" }).Label(courseType.ToString()))
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <p>- Какво е вашето ниво на английски език? Вижте таблицата за повече информация: А0 / А1 / А2 / B1 / B2 / B2+ / C1</p>
+                <div style="padding: 30px">
+                    <table class="table table-bordered">
+                        <tbody>
+                            @foreach (var quiz in (IList<BritanicaQuiz.ViewModels.QuizViewModel>)ViewData["quizzes"])
+                            {
+                                <tr>
+                                    <td>@(Html.Kendo().RadioButton().Name("quizId").Value(quiz.Id))</td>
+                                    <td><span>@quiz.Name</span></td>
+                                    <td><span>@quiz.ShortDescription</span></td>
+                                    <td><span>@quiz.LongDescription</span></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <p>- Моля посочете един от четирите града, в които бихте искали да се обучавате:</p>
+                <div>
+                    @(Html.Kendo().DropDownList().Name("cityId")
+                    .DataTextField("Name")
+                    .DataValueField("Id")
+                    .BindTo((IList<BritanicaQuiz.ViewModels.CityViewModel>)ViewData["cities"]))
+                </div>
+            </div>
+        </div>
+        <div class="k-block k-shadow">
+            <div>
+                <p>- Имате ли Cambridge English сертификат:</p>
+                @(Html.Kendo().DropDownList().Name("hasCertificate")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .BindTo(new List<SelectListItem>()
+                            {
+                                new SelectListItem { Value="0", Text="Нямам" },
+                                new SelectListItem { Value="1", Text="Имам" }
+                            })
+                        .Events(e => e.Select("updatePanel")))
+            </div>
+            <div id="update-panel-certificate" style="display: none">
+                <p>- Посочете какъв @(Html.Kendo().TextBox().Name("CertificateDescription"))</p>
+                <p>
+                    - С каква оценка
+                    @(Html.Kendo().DropDownList().Name("certificateGrade")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .BindTo(new List<SelectListItem>()
+                            {
+                                new SelectListItem { Value="0", Text=string.Empty },
+                                new SelectListItem { Value="1", Text="A" },
+                                new SelectListItem { Value="2", Text="B" }
+                            }))
+                </p>
+                <p>
+                    - Преди колко време сте се явили?
+                    @(Html.Kendo().DropDownList().Name("certificateTime")
+                        .DataTextField("Text")
+                        .DataValueField("Value")
+                        .BindTo(new List<SelectListItem>()
+                            {
+                                new SelectListItem { Value="0", Text=string.Empty },
+                                new SelectListItem { Value="1", Text="В последните 12 месеца" },
+                                new SelectListItem { Value="2", Text="Преди повече от 12 месеца" }
+                            })
+                        .Events(e => e.Select("updatePanelTest")))
+                </p>
+
+                <div id="update-panel-no-test" style="display: none">
+                    <p>* Не е необходимо да правите тест за определяне нивото на английски език. Моля попълнете вашите имена и в рамките на 2 работни дни представител на BRITANICA ще се свърже с вас да обсъдите възможностите за обучение.</p>
+                    <p>Изберете удобен за вас филиал:</p>
+                    @(Html.Kendo().DropDownList().Name("departmentId")
+                    .DataTextField("Name")
+                    .DataValueField("Id")
+                    .BindTo((IList<BritanicaQuiz.ViewModels.DepartmentViewModel>)ViewData["departments"]))
+                </div>
+            </div>
+            <div>
+                <div id="send-mail-button-panel">
+                    @(Html.Kendo().Button()
+                        .Name("nextButton")
+                        .HtmlAttributes(new { type = "submit", @class = "k-primary" })
+                        .Content("ИЗПРАТИ"))
+                </div>
+                <div id="test-button-panel" style="display: none">
+                    @(Html.Kendo().Button()
+                            .Name("nextButton")
+                            .HtmlAttributes(new { type = "submit", @class = "k-primary" })
+                            .Content("ТЕСТ"))
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -1,0 +1,7 @@
+﻿@using BritanicaQuiz.ViewModels
+<strong>@Html.Raw(Model.Text)</strong>
+
+@foreach (var answer in (IList<AnswerViewModel>)ViewData["answers"])
+{
+    <div>@answer.Text</div>
+}

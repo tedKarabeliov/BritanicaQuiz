@@ -1,0 +1,174 @@
+﻿@model BritanicaQuiz.ViewModels.QuestionSetViewModel
+@{
+    Layout = null;
+}
+<script>
+
+    function refreshKendoWindow()
+    {
+        $("#window").kendoWindow({
+            content: {
+                url: '@Url.Action("AjaxContent", "Question", new { next = true })'
+            },
+
+        });
+        $("#window").data("kendoWindow").center();
+    }
+
+    $(function () {
+
+        var onStopTimerCallback = function () {
+            $("input[name^='answer']").not("input[name$='text']").attr('name', 'answer');
+
+            @if ((int)ViewData["questionSetIndex"] != 0)
+            {
+                <text>
+            $('#previousButton').removeAttr('disabled').removeClass('k-state-disabled');
+            </text>
+            }
+
+            $.ajax({
+                url: '@Url.Action("NextQuestion", "Question")',
+                data: $('form').serialize(),
+                method: 'post',
+                success: function (e) {
+                    $('input').attr('disabled', 'disabled');
+                    $('input[type="text"]').css('background-color', '#EBEBEB');
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+        }
+
+        @if (!(((bool)(ViewData["isAnswered"]))))
+        {
+            <text>
+
+        //localStorage.removeItem('hours');
+        //localStorage.removeItem('minutes');
+        //localStorage.removeItem('seconds');
+
+        var hours = localStorage.getItem('hours');
+        var minutes = localStorage.getItem('minutes');
+        var seconds = localStorage.getItem('seconds');
+
+        if (hours == '0NaN' || minutes == '0NaN' || seconds == '0NaN')
+        {
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+        }
+
+        timer = new Timer(hours || @Model.AnswerTime.Hours, minutes || @Model.AnswerTime.Minutes, seconds || @Model.AnswerTime.Seconds, onStopTimerCallback);
+        timer.start();
+        </text>
+        }
+        else
+        {
+            <text>
+        $('input[type="text"]').css('background-color', '#EBEBEB');
+        </text>
+        }
+
+        $('form').submit(function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            $("input[name^='answer']").not("input[name$='text']").attr('name', 'answer');
+
+            $('#hoursHidden').val(localStorage.getItem('hours'));
+            $('#minutesHidden').val(localStorage.getItem('minutes'));
+            $('#secondsHidden').val(localStorage.getItem('seconds'));
+
+            localStorage.removeItem('hours');
+            localStorage.removeItem('minutes');
+            localStorage.removeItem('seconds');
+
+            if (typeof timer !== 'undefined') {
+                timer.stopTimer();
+            }
+
+            @if ((bool)(ViewData["isAnswered"]))
+            {
+                // Don't answer question if it's already answered
+                <text>
+            refreshKendoWindow();
+            </text>
+            }
+            else
+            {
+                <text>
+
+            $.ajax({
+                url: this.action,
+                type: this.method,
+                data: $(this).serialize(),
+                success: function (result) {
+                    refreshKendoWindow();
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            });
+            </text>
+            }
+
+            return false;
+        });
+    });
+</script>
+
+<div>
+    @if (!(((bool)(ViewData["isAnswered"]))))
+    {
+        <text>
+            <div class="panel panel-default" id="timer">
+                <div class="panel-body text-center">
+                    <div class="timer-time timer-container">
+                        <div class="timer-time-set timer-box" id="currentTime">
+                            <span id="hoursValue">00</span><span>:</span><span id="minutesValue">00</span><span>:</span><span id="secondsValue">00</span>
+                        </div>
+                        <div class="timer-time-set timer-box" id="nextTime">
+                            <span id="hoursNext">00</span><span>:</span><span id="minutesNext">00</span><span>:</span><span id="secondsNext">00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </text>
+    }
+</div>
+<div>
+    @using (Html.BeginForm("NextQuestion", "Question"))
+    {
+        <strong>@Html.Raw(Model.Text)</strong>
+
+        foreach (var question in Model.Questions)
+        {
+            Html.RenderPartial(question.HtmlPartial, question, new ViewDataDictionary(ViewData));
+        }
+
+        <input type="hidden" name="hours" id="hoursHidden" />
+        <input type="hidden" name="minutes" id="minutesHidden" />
+        <input type="hidden" name="seconds" id="secondsHidden" />
+        <div>
+            @(Html.Kendo().Button()
+                    .Name("previousButton")
+                    .HtmlAttributes(new { type = "button" })
+                    .Content("Back")
+                    .Enable((int)ViewData["questionSetIndex"] == 0 || !((bool)ViewData["isAnswered"]) ? false : true))
+
+            @(Html.Kendo().Button()
+                    .Name("nextButton")
+                    .HtmlAttributes(new { type = "submit", @class = "k-primary" })
+                    .Content((int)ViewData["questionSetIndex"] == (int)ViewData["questionSetsCount"] - 1 ? "Finish" : "Next"))
+        </div>
+
+        <script>
+            $('#previousButton').click(function (e) {
+                var content = '@Url.Action("AjaxContent", "Question", new { next = false })';
+                $("#window").data("kendoWindow").refresh({ url: content });
+            });
+        </script>
+    }
+</div>

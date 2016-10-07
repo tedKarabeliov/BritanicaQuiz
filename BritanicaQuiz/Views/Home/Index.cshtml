@@ -1,0 +1,28 @@
+﻿@model IEnumerable<BritanicaQuiz.ViewModels.TrainingGroupViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Hm</h1>
+
+<h2>Training Groups</h2>
+
+
+
+@(Html.Kendo().Grid<BritanicaQuiz.ViewModels.TrainingGroupViewModel>()
+.Name("trainingGroupsGrid")
+.Columns(c =>
+{
+    c.Bound(tg => tg.TrainingProduct)
+            .Width(240);
+    c.Bound(tg => tg.StartingDate);
+})
+.Scrollable()
+.Sortable()
+.DataSource(ds =>
+    ds.Ajax()
+        .Read(r => r.Action("TrainingGroups_Read", "Home"))
+            .PageSize(20)
+        )
+)
+

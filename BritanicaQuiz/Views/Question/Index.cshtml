@@ -1,0 +1,32 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@(Html.Kendo().Window()
+    .Name("window")
+    .Title(ViewData["QuizName"].ToString())
+    .Content("Loading quiz...")
+        .LoadContentFrom("AjaxContent", "Question")
+    .Iframe(false)
+    .Draggable()
+    .Resizable()
+    .Width(600)
+    .Height(700)
+    .Visible(false)
+    .Animation(false)
+    .Scrollable(true)
+        .Actions(a => { a.Close(); })
+)
+
+<script>
+    $(document).ready(function () {
+        var win = $("#window").data("kendoWindow");
+        win.bind("refresh", function () {
+            win.center();
+            win.open();
+        });
+    });
+</script>
+

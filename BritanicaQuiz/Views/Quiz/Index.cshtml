@@ -1,0 +1,64 @@
+﻿@using BritanicaQuiz.Model;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #enrolment-form-wrapper ul {
+        list-style-type: none;
+        padding-bottom: 1em;
+        margin-bottom: 2em;
+    }
+
+    #enrolment-form-wrapper .field {
+        margin: 0 5em -1em;
+    }
+
+        #enrolment-form-wrapper .field li {
+            list-style: none;
+            padding-bottom: 0.5em;
+        }
+
+    #enrolment-form-wrapper h4 {
+        padding-top: 1em;
+        padding-left: 1em;
+    }
+
+    #enrolment-form-wrapper .bottom-right {
+        text-align: right;
+        padding: 10px;
+    }
+</style>
+
+<div id="enrolment-form-wrapper" class="k-block k-shadow wrapper">
+    <div class="k-block k-shadow">
+        <h4>Please, choose your level</h4>
+        <ul class="field">
+            @foreach (var type in Enum.GetValues(typeof(CourseType)))
+            {
+                <li>
+                    @(Html.Kendo().RadioButton().Name(type.ToString()).HtmlAttributes(new { @name = "CourseType" }).Label(type.ToString()))
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="k-block k-shadow">
+        <h4>Please, choose your level</h4>
+        <ul class="field">
+            @foreach (var item in ((IList<Quiz>)(ViewData["quizzes"])))
+            {
+                <li>
+                    @(Html.Kendo().RadioButton().Name(item.Name).HtmlAttributes(new { @name = "quizId" }).Value(item.Id).Label(item.Name))
+                </li>
+            }
+        </ul>
+
+        <div class="bottom-right">
+            @(Html.Kendo().Button()
+                .Name("nextButton")
+                .HtmlAttributes(new { type = "button", @class = "k-primary" })
+                .Content("NEXT"))
+        </div>
+    </div>
+</div>
